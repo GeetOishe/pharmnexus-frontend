@@ -1,0 +1,76 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; overflow: hidden; }
+body { background: transparent; }
+button, input, select, textarea { font: inherit; }
+
+@keyframes spin    { to   { transform: rotate(360deg); } }
+@keyframes pulse   { 0%,100% { opacity: .45; } 50% { opacity: .85; } }
+@keyframes fadeUp  { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes blink   { 0%,80%,100% { opacity: 0; } 40% { opacity: 1; } }
+@keyframes glow    { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes slideIn { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+
+.spin    { animation: spin 0.7s linear infinite; display: inline-block; }
+.pulse   { animation: pulse 1.6s ease-in-out infinite; }
+.fadeUp  { animation: fadeUp 0.25s ease-out both; }
+.slideIn { animation: slideIn 0.2s ease-out both; }
+
+.shimmer-dark {
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.10) 50%,
+    rgba(255,255,255,0.04) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.shimmer-light {
+  background: linear-gradient(90deg,
+    rgba(99,102,241,0.06) 25%,
+    rgba(99,102,241,0.13) 50%,
+    rgba(99,102,241,0.06) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.dot1 { animation: blink 1.4s 0.0s infinite; }
+.dot2 { animation: blink 1.4s 0.2s infinite; }
+.dot3 { animation: blink 1.4s 0.4s infinite; }
+
+/* Delete button */
+.btn-delete {
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+}
+.btn-delete:hover {
+  background: rgba(239,68,68,0.18) !important;
+  border-color: rgba(239,68,68,0.6) !important;
+  color: #ef4444 !important;
+  transform: scale(1.08);
+}
+
+/* Run list row hover */
+.run-row { transition: border-color 0.15s, background 0.15s; }
+.run-row:hover { border-color: rgba(99,130,246,0.4) !important; }
+
+/* Card hover */
+.evidence-card { transition: border-color 0.15s, box-shadow 0.15s; }
+.evidence-card:hover { box-shadow: 0 2px 12px rgba(59,130,246,0.10); }
+
+/* Input focus */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #4f8ef7 !important;
+  box-shadow: 0 0 0 3px rgba(79,142,247,0.15);
+}
+
+/* Pill buttons hover */
+.pill-btn { transition: background 0.12s, border-color 0.12s, color 0.12s; }
+.pill-btn:hover:not(:disabled) { filter: brightness(1.12); }
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.25); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.45); }
